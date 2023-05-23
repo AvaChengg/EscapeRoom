@@ -16,5 +16,5 @@ int main()
 {
 	string text = " Hello How are you? ";
 	screenFormat.FullScreen();
-	screenFormat.SetHeight(text);
+	screenFormat.TextOnCenter(text);
 }

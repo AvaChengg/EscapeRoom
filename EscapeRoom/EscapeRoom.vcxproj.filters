@@ -29,13 +29,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ScreenFormat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Game.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="World.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ScreenFormat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

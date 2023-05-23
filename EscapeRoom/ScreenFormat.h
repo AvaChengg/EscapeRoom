@@ -10,8 +10,7 @@ class ScreenFormat
 	// set full screen
 public:
 	void FullScreen();
-	void SetHeight(string text);
-	// set contect in the middle of the screen
-
+	void GetScreenSize(COORD screenSize);
+	void TextOnCenter(string text);
 };
 
