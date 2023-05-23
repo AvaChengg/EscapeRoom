@@ -1,5 +1,5 @@
 #include <iostream>
-#include "ScreenFormat.h"
+#include "screen_format.h"
 
 using namespace std;
 

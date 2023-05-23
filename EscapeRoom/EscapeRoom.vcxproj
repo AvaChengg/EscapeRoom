@@ -127,15 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="EscapeRoom.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="ScreenFormat.cpp" />
-    <ClCompile Include="World.cpp" />
+    <ClCompile Include="escape_room.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="screen_format.cpp" />
+    <ClCompile Include="world.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="ScreenFormat.h" />
-    <ClInclude Include="World.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="screen_format.h" />
+    <ClInclude Include="world.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

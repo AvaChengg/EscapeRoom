@@ -4,7 +4,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <windows.h>
-#include "ScreenFormat.h"
+#include "screen_format.h"
 #include "World.h"
 
 using namespace std;
