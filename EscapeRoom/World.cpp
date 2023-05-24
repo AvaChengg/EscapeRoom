@@ -154,7 +154,14 @@ void GameMap::DrawGameMap()
 void GameMap::ReloadLevel()
 {
     GameMap::SetHeight();
-    cout << "                                                                                                          Press W, A, S, D to move" << endl;
+    cout << "                                                                                                          1. Press W, A, S, D to move" << endl;
+    cout << endl;
+    cout << "                                                                                                          2. Find '1' to escape" << endl;
+    cout << endl;
+    cout << "                                                                                                          3. Don't hit the '#'" << endl;
+    cout << endl;
+    cout << "                                                                                                          4. 'q' to exit" << endl;
+
     GameMap::SetHeight();
     GameMap::SetSpike();
     GameMap::DrawGameMap();
