@@ -10,7 +10,6 @@ namespace GameChecker
 	class Game
 	{
 	public:
-		void StartGame();
 		bool EndGame();
 		bool Restart();
 	};

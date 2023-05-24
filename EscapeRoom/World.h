@@ -14,6 +14,8 @@ namespace Level
 		void GetScreenSize(COORD screenSize);
 		void SetHeight();
 		void TextOnCenter();
+		void SetSpike();
+		void SetKey();
 		void DrawGameMap();
 		void PlayGame();
 		void PlayerAction();

@@ -3,15 +3,7 @@
 
 #include <iostream>
 #include <windows.h>
-#include "screen_format.h"
 #include "World.h"
-//#include "World.cpp"
-
-//#define KEY_UP 72;
-//#define KEY_DOWN 80;
-//#define KEY_LEFT 75;
-//#define KEY_RIGHT 77;
-//#define KEY_X 72;
 
 using namespace std;
 using namespace Level;
@@ -21,5 +13,6 @@ GameMap gameMap;
 int main()
 {
 	gameMap.FullScreen();
+	gameMap.SetKey();
 	gameMap.PlayGame();
 }

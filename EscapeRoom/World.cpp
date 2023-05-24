@@ -11,6 +11,8 @@ int yPos = 2;
 int xPrePos = 0;
 int yPrePos = 0;
 string player = { "0" };
+string spike = { "#" };
+string key = { "1" };
 string input;
 COORD screenSize;
 
@@ -95,14 +97,52 @@ void GameMap::SetHeight()
     cout << text << endl;
 }
 
+void GameMap::SetSpike()
+{
+    int xRandom = rand() % WIDTH;
+    int yRandom = rand() % HEIGHT;
+
+    if ((path[xRandom][yRandom] != "שש") && (path[xRandom][yRandom] != "שר"))
+    {
+        if (path[xRandom][yRandom] != "1")
+        {
+            path[xRandom][yRandom] = spike;
+        }
+    }
+}
+
+void GameMap::SetKey()
+{
+    int xRandom = rand() % WIDTH;
+    int yRandom = rand() % HEIGHT;
+
+    path[xRandom][yRandom] = key;
+}
+
 void GameMap::DrawGameMap()
 {
     path[xPos][yPos] = player;
+    HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     for (int i = 0; i < WIDTH; i++)
     {
         GameMap::TextOnCenter();
         for (int j = 0; j < HEIGHT; j++)
         {
+            if (path[i][j] == "#")
+            {
+                // set text to red
+                SetConsoleTextAttribute(h, 4);
+            }
+            else if (path[i][j] == "1")
+            {
+                // set text to green
+                SetConsoleTextAttribute(h, 2);
+            }
+            else
+            {
+                // set text to white
+                SetConsoleTextAttribute(h, 15);
+            }
             cout << path[i][j] << " ";
         }
         cout << endl;
@@ -114,6 +154,7 @@ void GameMap::ReloadLevel()
     GameMap::SetHeight();
     cout << "                                                                                                          Press W, A, S, D to move" << endl;
     GameMap::SetHeight();
+    GameMap::SetSpike();
     GameMap::DrawGameMap();
     GameMap::PlayerAction();
 }
@@ -139,7 +180,6 @@ void GameMap::CheckInput()
     }
     else if ((input == "s" || input == "S") && path[xPos + 1][yPos] != "שש")
     {
-        //if (path[xPos + 1][yPos] == "שש") return;
         xPos++;
         path[xPrePos][yPrePos] = space;
     }
@@ -148,7 +188,6 @@ void GameMap::CheckInput()
         cout << " Press W, A, S, D to Move !!!!!" << endl;
     }
     system("cls");
-    ReloadLevel();
 }
 
 void GameMap::PlayerAction()
@@ -164,9 +203,10 @@ void GameMap::PlayerAction()
 
 void GameMap::PlayGame()
 {
-    while (input != "q" || input == "Q")
+    while (input != "q")
     {
         CheckInput();
+        ReloadLevel();
     }
 }
 
