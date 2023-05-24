@@ -1,7 +1,7 @@
 # EscapeRoom
  
  ## Introduce
- I have learned C++ in these 3 months and it's my small project to practice skills. I spend two days finishing it, so the code is messy. </br>
+ I have learned C++ in these 3 months and it's my small project to practice skills. I spend two days finishing it, so the code is messy. I'm sorry about that. </br>
 
  ## Gameplay Rules
  * Don't hit the spike which is '#' </br>
