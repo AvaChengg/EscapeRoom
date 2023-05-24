@@ -122,34 +122,39 @@ void GameMap::CheckInput()
 {
     string space = " ";
 
-    if (input == "a" || "A")
+    if ((input == "a" || input == "A") && path[xPos][yPos - 1] != "שר")
     {
         yPos--;
+        path[xPrePos][yPrePos] = space;
     }
-    else if (input == "d" || "D")
+    else if ((input == "d" || input == "D") && path[xPos][yPos + 1] != "שר")
     {
         yPos++;
+        path[xPrePos][yPrePos] = space;
     }
-    else if (input == "w" || "W")
+    else if ((input == "w" || input == "W") && path[xPos - 1][yPos] != "שש")
     {
         xPos--;
+        path[xPrePos][yPrePos] = space;
     }
-    else if (input == "s" || "S")
+    else if ((input == "s" || input == "S") && path[xPos + 1][yPos] != "שש")
     {
+        //if (path[xPos + 1][yPos] == "שש") return;
         xPos++;
+        path[xPrePos][yPrePos] = space;
     }
     else
     {
         cout << " Press W, A, S, D to Move !!!!!" << endl;
     }
-    path[xPrePos][yPrePos] = space;
     system("cls");
     ReloadLevel();
 }
 
 void GameMap::PlayerAction()
 {
-    cout << " Action: ";
+    cout << endl;
+    cout << "                                                                                         Action: ";
     cin >> input;
 
     xPrePos = xPos;
@@ -159,7 +164,7 @@ void GameMap::PlayerAction()
 
 void GameMap::PlayGame()
 {
-    while (input != "q" || "Q")
+    while (input != "q" || input == "Q")
     {
         CheckInput();
     }

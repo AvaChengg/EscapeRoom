@@ -18,17 +18,8 @@ using namespace Level;
 
 GameMap gameMap;
 
-void LoadLevel()
-{
-	gameMap.FullScreen();
-	gameMap.SetHeight();
-	cout << "                                                                                                          Press W, A, S, D to move" << endl;
-	gameMap.SetHeight();
-	gameMap.DrawGameMap();
-}
-
 int main()
 {
-	LoadLevel();
+	gameMap.FullScreen();
 	gameMap.PlayGame();
 }
