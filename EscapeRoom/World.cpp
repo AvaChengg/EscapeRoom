@@ -10,6 +10,8 @@ int xPos = 28;
 int yPos = 2;
 int xPrePos = 0;
 int yPrePos = 0;
+bool stopGame = false;
+bool isDied = false;
 string player = { "0" };
 string spike = { "#" };
 string key = { "1" };
@@ -165,21 +167,65 @@ void GameMap::CheckInput()
 
     if ((input == "a" || input == "A") && path[xPos][yPos - 1] != "שר")
     {
+        if (path[xPos][yPos - 1] == "1")
+        {
+            isDied = false;
+            stopGame = true;
+        }
+        else if (path[xPos][yPos - 1] == "#")
+        {
+            isDied = true;
+            stopGame = true;
+        }
+
         yPos--;
         path[xPrePos][yPrePos] = space;
     }
     else if ((input == "d" || input == "D") && path[xPos][yPos + 1] != "שר")
     {
+        if (path[xPos][yPos + 1] == "1")
+        {
+            isDied = false;
+            stopGame = true;
+        }
+        else if (path[xPos][yPos + 1] == "#")
+        {
+            isDied = true;
+            stopGame = true;
+        }
+
         yPos++;
         path[xPrePos][yPrePos] = space;
     }
     else if ((input == "w" || input == "W") && path[xPos - 1][yPos] != "שש")
     {
+        if (path[xPos - 1][yPos] == "1")
+        {
+            isDied = false;
+            stopGame = true;
+        }
+        else if (path[xPos - 1][yPos] == "#")
+        {
+            isDied = true;
+            stopGame = true;
+        }
+
         xPos--;
         path[xPrePos][yPrePos] = space;
     }
     else if ((input == "s" || input == "S") && path[xPos + 1][yPos] != "שש")
     {
+        if (path[xPos + 1][yPos] == "1")
+        {
+            isDied = false;
+            stopGame = true;
+        }
+        else if (path[xPos + 1][yPos] == "#")
+        {
+            isDied = true;
+            stopGame = true;
+        }
+
         xPos++;
         path[xPrePos][yPrePos] = space;
     }
@@ -203,10 +249,38 @@ void GameMap::PlayerAction()
 
 void GameMap::PlayGame()
 {
-    while (input != "q")
+    while (stopGame == false)
     {
-        CheckInput();
         ReloadLevel();
+
+        if (input == "q")
+        {
+            stopGame = true;
+        }
+
+        CheckInput();
+    }
+
+    if (isDied == true)
+    {
+        GameMap::Lose();
+    }
+    else if (isDied == false)
+    {
+        GameMap::Win();
     }
 }
 
+void GameMap::Lose()
+{
+    GameMap::SetHeight();
+    cout << "                                                                                                         You died" << endl;
+    GameMap::SetHeight();
+}
+
+void GameMap::Win()
+{
+    GameMap::SetHeight();
+    cout << "                                                                                                         You win" << endl;
+    GameMap::SetHeight();
+}

@@ -21,5 +21,7 @@ namespace Level
 		void PlayerAction();
 		void CheckInput();
 		void ReloadLevel();
+		void Lose();
+		void Win();
 	};
 }
