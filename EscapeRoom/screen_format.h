@@ -5,12 +5,12 @@
 
 using namespace std;
 
-
-class ScreenFormat
-{
-public:
-	void FullScreen();
-	void GetScreenSize(COORD screenSize);
-	void TextOnCenter(string text);
-};
+//class ScreenFormat
+//{
+//
+//public:
+//	void FullScreen();
+//	void GetScreenSize(COORD screenSize);
+//	void TextOnCenter();
+//};
 
